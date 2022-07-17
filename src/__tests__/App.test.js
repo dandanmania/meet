@@ -6,6 +6,7 @@ import CitySearch from '../CitySearch';
 
 import { mockData } from '../mock-data';
 import { extractLocations, getEvents } from '../api';
+import NumberOfEvents from "../NumberOfEvents";
 
 describe('<App /> component', () => {
     let AppWrapper;
@@ -66,4 +67,51 @@ describe('<App /> integration', () => {
         expect(AppWrapper.state('events')).toEqual(allEvents);
         AppWrapper.unmount();
     })
-})
+
+    test('default load of events', async () => {
+        const AppWrapper = mount(<App />);
+        const allEvents = await getEvents();
+        const eventNumber = AppWrapper.state('eventNumber');
+        expect(eventNumber).not.toEqual(undefined);
+        expect(AppWrapper.state('events')).toEqual(allEvents.slice(0, eventNumber));
+        console.log(eventNumber)
+        AppWrapper.unmount();
+    })
+
+    test('NOE change passes through to App eventNumber state', () => {
+        const AppWrapper = mount(<App />);
+        const NOEWrapper = AppWrapper.find(NumberOfEvents);
+        const eventNumber = NOEWrapper.state('eventNumber');
+        expect(eventNumber).not.toEqual(undefined);
+        const randomEventNumber = Math.floor((Math.random() * 31) + 1);
+        NOEWrapper.find('.event-number-cap').simulate('change', {
+            target: { value: randomEventNumber }
+        })
+        expect(AppWrapper.state('eventNumber')).toBe(randomEventNumber);
+        AppWrapper.unmount();
+    })
+
+    test('App passes "eventNumber" state to EventList', () => {
+        const AppWrapper = mount(<App />);
+        const AppEventNumberState = AppWrapper.state('eventNumber');
+        expect(AppEventNumberState).not.toEqual(undefined);
+        expect(AppWrapper.find(EventList).props().eventNumber).toEqual(AppEventNumberState);
+        AppWrapper.unmount();
+    })
+
+    test('EventList caps the amount of events based on NumberOfEvents', async () => {
+        const AppWrapper = mount(<App />);
+        const EventListWrapper = AppWrapper.find(EventList);
+        const NOEWrapper = AppWrapper.find(NumberOfEvents);
+        const loadEvents = await getEvents();
+        NOEWrapper.find('.event-number-cap').simulate('change', {
+            target: { value: 1 }
+        })
+        expect(AppWrapper.state('eventNumber')).toBe(1);
+        expect(AppWrapper.find(EventList).props().events).toEqual(loadEvents);
+        const listitems = EventListWrapper.find('ul.EventList li')
+        console.log(listitems)
+        expect(listitems).toHaveLength(1);
+        AppWrapper.unmount();
+    })
+});

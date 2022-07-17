@@ -18,7 +18,7 @@ class Event extends Component {
                 <p className='time'>{event.start.dateTime} - {event.end.dateTime}</p>
                 <p className='location'>{event.location}</p>
                 {this.state.hidden ? null : (<p className='details'>{event.description}</p>)}
-                <button className='details-toggle' onClick= {() => this.detailsClicked(this.state)}></button>
+                <button className='details-toggle' onClick= {() => this.detailsClicked(this.state)}>Show Details</button>
             </div>
         );
     }

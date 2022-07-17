@@ -11,7 +11,8 @@ class NumberOfEvents extends Component {
         if (value < 1 || value > 33) {
             this.setState({noeerror: 'Enter a number between 1 and 32.'})
         } else {
-            this.setState({eventNumber: value})
+            this.setState({eventNumber: value});
+            this.props.updateEventNumber(value);
         }
     }
 
