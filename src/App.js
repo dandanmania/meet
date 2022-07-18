@@ -10,7 +10,7 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    eventNumber: 30
+    eventNumber: 32
   }
 
   updateEvents = (location, eventNumber) => {
