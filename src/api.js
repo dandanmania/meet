@@ -75,7 +75,7 @@ export const getEvents = async () => {
 }
 
 export const getAccessToken = async () => {
-    const accessToken = localStorage.getItem('access-token');
+    const accessToken = localStorage.getItem('access_token');
     const tokenCheck = accessToken && (await checkToken(accessToken));
     if (!accessToken || tokenCheck.error) {
         await localStorage.removeItem('access_token');
