@@ -99,9 +99,8 @@ describe('<App /> integration', () => {
         AppWrapper.unmount();
     })
 
-    test('EventList caps the amount of events based on NumberOfEvents', async () => {
+    test('Complete flow check with eventNumber and events', async () => {
         const AppWrapper = mount(<App />);
-        const EventListWrapper = AppWrapper.find(EventList);
         const NOEWrapper = AppWrapper.find(NumberOfEvents);
         const loadEvents = await getEvents();
         NOEWrapper.find('.event-number-cap').simulate('change', {
