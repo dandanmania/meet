@@ -23,7 +23,7 @@ const getToken = async (code) => {
         const encodeCode = encodeURIComponent(code);
 
         const response = await fetch(
-            'https://nqe9xiax80.execute-api.us-west-1.amazonaws.com/dev/api/token' + '/' + encodeCode
+            'https://nqe9xiax80.execute-api.us-west-1.amazonaws.com/dev/api/token/' + encodeCode
         );
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`)
@@ -62,7 +62,7 @@ export const getEvents = async () => {
 
     if (token) {
         removeQuery();
-        const url = 'https://nqe9xiax80.execute-api.us-west-1.amazonaws.com/dev/api/get-events' + '/' + token;
+        const url = 'https://nqe9xiax80.execute-api.us-west-1.amazonaws.com/dev/api/get-events/' + token;
         const result = await axios.get(url);
         if (result.data) {
             var locations = extractLocations(result.data.events);
