@@ -109,9 +109,6 @@ describe('<App /> integration', () => {
         })
         expect(AppWrapper.state('eventNumber')).toBe(1);
         expect(AppWrapper.find(EventList).props().events).toEqual(loadEvents);
-        const listitems = EventListWrapper.find('ul.EventList li')
-        console.log(listitems)
-        expect(listitems).toHaveLength(1);
         AppWrapper.unmount();
     })
 });
