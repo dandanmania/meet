@@ -99,7 +99,7 @@ describe('<App /> integration', () => {
         AppWrapper.unmount();
     })
 
-    test('Complete flow check with eventNumber and events', async () => {
+    test('Complete flow check with eventNumber and events to output appropriate EventList length', async () => {
         const AppWrapper = mount(<App />);
         const NOEWrapper = AppWrapper.find(NumberOfEvents);
         const loadEvents = await getEvents();
@@ -108,6 +108,7 @@ describe('<App /> integration', () => {
         })
         expect(AppWrapper.state('eventNumber')).toBe(1);
         expect(AppWrapper.find(EventList).props().events).toEqual(loadEvents);
+        expect(AppWrapper.find('.EventList li')).toHaveLength(1);
         AppWrapper.unmount();
     })
 });
