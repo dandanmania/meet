@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Form, InputGroup } from 'react-bootstrap';
 
 class NumberOfEvents extends Component {
     state = {
@@ -18,13 +19,14 @@ class NumberOfEvents extends Component {
 
     render() {
         return(
-            <div className='noe-container'>
-                <input 
-                    type='text'
+            <div className='noe-container mx-auto'>
+                <InputGroup>
+                    <InputGroup.Text>Number of Events</InputGroup.Text>
+                    <Form.Control type='text'
                     className='event-number-cap'
                     value={this.state.eventNumber}
-                    onChange={this.handleInputChanged}
-                />
+                    onChange={this.handleInputChanged} />
+                </InputGroup> 
                 <div className='number-error'>{this.state.noeerror}</div>
             </div>
         )

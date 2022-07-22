@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Container } from 'react-bootstrap';
 
 
 class Event extends Component {
@@ -12,15 +13,19 @@ class Event extends Component {
     }
 
     render() {
-        const { event } = this.props
+        const { event } = this.props;
+        const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+        const startDate = new Date(event.start.dateTime);
+        const endDate = new Date(event.end.dateTime);
+
         return (
-            <div className='event'>
+            <Container className='event'>
                 <p className='title'>{event.summary}</p>
-                <p className='time'>{event.start.dateTime} - {event.end.dateTime}</p>
+                <p className='time'>{startDate.toLocaleTimeString('en-US', dateOptions)} - {endDate.toLocaleTimeString('en-US', dateOptions)}</p>
                 <p className='location'>{event.location}</p>
                 {this.state.hidden ? null : (<p className='details'>{event.description}</p>)}
-                <button className='details-toggle' onClick= {() => this.detailsClicked(this.state)}>{this.state.buttonLabel}</button>
-            </div>
+                <Button variant="primary" className='mt-3 details-toggle' onClick= {() => this.detailsClicked(this.state)}>{this.state.buttonLabel}</Button>
+            </Container>
         );
     }
 }

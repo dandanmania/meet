@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Form, InputGroup } from 'react-bootstrap';
 
 class CitySearch extends Component {
     state = {
@@ -30,13 +31,16 @@ class CitySearch extends Component {
     render() {
         return (
             <div className='CitySearch'>
-                <input 
-                    type='text'
-                    className='city'
-                    value={this.state.query}
-                    onChange={this.handleInputChanged}
-                    onFocus={() => { this.setState({ showSuggestions: true })}}
-                />
+                <InputGroup>
+                    <InputGroup.Text>Location</InputGroup.Text>
+                    <Form.Control 
+                        type='text'
+                        className='city'
+                        value={this.state.query}
+                        onChange={this.handleInputChanged}
+                        onFocus={() => { this.setState({ showSuggestions: true })}}
+                    />
+                </InputGroup>
                 <ul className='suggestions' style={this.state.showSuggestions ? {} : { display: 'none' }}>
                     {this.state.suggestions.map((suggestion) => (
                         <li 

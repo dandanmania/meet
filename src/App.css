@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 .App {
   text-align: center;
-  padding: 2% 5%;
+  padding: 0% 0%;
 }
 
 .App * {
@@ -14,7 +14,8 @@ ul {
 }
 
 p {
-  margin: 5px 0;
+  margin: 3px 0;
+  padding: 0px 10px;
 }
 
 .display-none {
@@ -44,25 +45,29 @@ input[type="number"] {
   display: flex;
   flex-direction: column;
   flex-basis: 300px;
-  max-width: 300px;
+  max-width: 400px;
   margin: auto;
   margin-bottom: 15px;
   position: relative;
+  padding-top: 10px;
 }
 
 .suggestions {
   width: 250px;
   position: absolute;
-  z-index: 2;
+  z-index: 4;
   align-self: center;
   margin: 0;
   top: 43px;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
+  margin-left: 60px;
+  padding-left: 10px;
 }
 
 .suggestions > li {
   text-align: left;
+  margin-top: 8px;
   padding: 8px 6px 8px 10px;
   background-color: #eee;
   cursor: default;
@@ -78,12 +83,13 @@ input[type="number"] {
 }
 
 .event {
-  padding: 10px 10px 35px;
-  margin-bottom: 10px;
+  padding: 20px 20px 15px;
+  margin: 20px;
   text-align: left;
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
+  background-color: #FFFFFF;
 }
 
 .details-btn {
@@ -197,6 +203,48 @@ input[type="number"] {
   font-size: 14px;
   letter-spacing: 0.2px;
   font-family: "Roboto";
+}
+.MainLogo {
+  height: 5%;
+  margin: 0 auto;
+}
+
+.MainLogo > a {
+    text-decoration: none !important;
+}
+
+.LogoText {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.topbar {
+  margin-bottom: 10px;
+  padding-top: 0px;
+  background-color: #494949;
+  display: flex;
+}
+.hovercolor:hover {
+  fill: #4B83B2
+}
+.noe-container {
+  max-width: 300px;
+}
+
+.details-toggle {
+  background-color:#4B83B2 !important;
+  border: none !important;
+  margin-left: 10px;
+}
+
+.title {
+  padding-top: 1px;
+  font-weight: bold;
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
 

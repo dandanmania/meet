@@ -43,6 +43,25 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className="topbar">
+          <svg className="MainLogo" height="100px" width="405px">
+            <a href="/">
+            <path 
+              d="m 28 -20 l -52 326 l 365 3 l 58 -329"
+              fill="#85B3D9"
+              className='hovercolor'/>
+            <text x="195"
+                  y="55"
+                  fill="#FFFFFF"
+                  text-anchor="middle"
+                  alignment-baseline="middle"
+                  className='LogoText'>
+                  Meet App
+              </text>
+            </a>
+          </svg>
+        </div>
+
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
         <NumberOfEvents updateEvents={this.updateEvents}/>
         <EventList events={this.state.events} eventNumber={this.state.eventNumber}/>
