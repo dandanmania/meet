@@ -24,7 +24,7 @@ class Event extends Component {
                 <p className='time'>{startDate.toLocaleTimeString('en-US', dateOptions)} - {endDate.toLocaleTimeString('en-US', dateOptions)}</p>
                 <p className='location'>{event.location}</p>
                 {this.state.hidden ? null : (<p className='details'>{event.description}</p>)}
-                <Button variant="primary" className='mt-3 details-toggle' onClick= {() => this.detailsClicked(this.state)}>{this.state.buttonLabel}</Button>
+                <Button variant="primary" className='mt-3 mb-1 details-toggle' onClick= {() => this.detailsClicked(this.state)}>{this.state.buttonLabel}</Button>
             </Container>
         );
     }
