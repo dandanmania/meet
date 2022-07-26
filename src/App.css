@@ -136,10 +136,21 @@ input[type="number"] {
 }
 
 .Alert {
-  position: fixed !important;
-  top: 102px;
-  left: 0;
-  right: 0;
+  display: flex;
+  z-index: 2;
+  position: absolute;
+}
+
+.CitySearch > .Alert {
+  width: 200%;
+  top: -6px;
+  left: -10%;
+  justify-self: center;
+}
+
+.noe-container > .Alert {
+  top: 222px;
+  justify-self: center;
 }
 
 .data-vis-wrapper {

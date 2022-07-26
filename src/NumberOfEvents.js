@@ -21,7 +21,7 @@ class NumberOfEvents extends Component {
     render() {
         return(
             <>
-                <div className='noe-container mx-auto'>
+                <div className='noe-container pb-2 mx-auto'>
                     <InputGroup>
                         <InputGroup.Text>Number of Events</InputGroup.Text>
                         <Form.Control type='text'
