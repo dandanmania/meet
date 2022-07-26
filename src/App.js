@@ -10,7 +10,8 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    eventNumber: 32
+    eventNumber: 32,
+    text: ''
   }
 
   updateEvents = (location, eventNumber) => {
@@ -27,7 +28,9 @@ class App extends Component {
       this.setState({
         events: locationEvents
       });
-    });
+    }).catch(
+      this.setState({text: 'You are offline. To update the list events, r'})
+    );
   }
 
   componentDidMount() {

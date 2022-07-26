@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, InputGroup } from 'react-bootstrap';
+import { ErrorAlert } from './Alert';
 
 class NumberOfEvents extends Component {
     state = {
@@ -10,25 +11,27 @@ class NumberOfEvents extends Component {
     handleInputChanged = (event) => {
         const value = event.target.value;
         if (value < 1 || value > 33) {
-            this.setState({noeerror: 'Enter a number between 1 and 32.'})
+            this.setState({infoText: 'Enter a number between 1 and 32.'})
         } else {
-            this.setState({eventNumber: value});
+            this.setState({eventNumber: value, infoText: ''});
             this.props.updateEvents(undefined, value);
         }
     }
 
     render() {
         return(
-            <div className='noe-container mx-auto'>
-                <InputGroup>
-                    <InputGroup.Text>Number of Events</InputGroup.Text>
-                    <Form.Control type='text'
-                    className='event-number-cap'
-                    value={this.state.eventNumber}
-                    onChange={this.handleInputChanged} />
-                </InputGroup> 
-                <div className='number-error'>{this.state.noeerror}</div>
-            </div>
+            <>
+                <div className='noe-container mx-auto'>
+                    <InputGroup>
+                        <InputGroup.Text>Number of Events</InputGroup.Text>
+                        <Form.Control type='text'
+                        className='event-number-cap'
+                        value={this.state.eventNumber}
+                        onChange={this.handleInputChanged} />
+                    </InputGroup>
+                    <ErrorAlert text={this.state.infoText}/> 
+                </div>
+            </>
         )
     }
 }
