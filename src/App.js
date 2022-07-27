@@ -60,7 +60,7 @@ class App extends Component {
       <div className="App">
         <div className="topbar">
           <svg className="MainLogo" height="100px" width="405px">
-            <a href="/meet">
+            <a href="/">
             <path 
               d="m 20 -20 l -52 326 l 365 3 l 58 -329"
               fill="#85B3D9"
