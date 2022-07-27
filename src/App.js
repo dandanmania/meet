@@ -6,6 +6,7 @@ import CitySearch from './CitySearch';
 import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
 import NumberOfEvents from './NumberOfEvents';
 import WelcomeScreen from './WelcomeScreen';
+import { WarningAlert } from './Alert';
 
 class App extends Component {
   state = {
@@ -47,6 +48,12 @@ class App extends Component {
         }
       });
     }
+
+    if(!navigator.onLine) {
+      this.setState({ text: 'You\'re now offline! Reconnect to get the latest! '})
+    } else {
+      this.setState({ text: '' })
+    }
   }
 
   componentWillUnmount() {
@@ -76,6 +83,7 @@ class App extends Component {
             </a>
           </svg>
         </div>
+        <WarningAlert text={this.state.text}/>
 
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
         <NumberOfEvents updateEvents={this.updateEvents}/>
