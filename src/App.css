@@ -279,7 +279,7 @@ body {
     position: fixed;
     top: 160px;
   }
-  
+
   .CitySearch > .Alert {
     width: 100%;
     top: -2px;
@@ -292,6 +292,10 @@ body {
     font-size: x-small;
     left: 6rem;
     font-weight: bold;
+  }
+  
+  .event {
+    margin-bottom: 0px;
   }
 }
 
