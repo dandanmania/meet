@@ -4,6 +4,7 @@
     height: 100%;
     top: 0;
     background: white;
+    padding-top: 20px;
 }
 
 .login-button {
@@ -63,4 +64,7 @@
     width: 80%;
     height: 100%;
     text-align: center;
+    margin-top: 0px;
+    margin-right: 0px;
+    border: none;
 }
