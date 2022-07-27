@@ -50,7 +50,7 @@ class App extends Component {
           <svg className="MainLogo" height="100px" width="405px">
             <a href="/">
             <path 
-              d="m 28 -20 l -52 326 l 365 3 l 58 -329"
+              d="m 20 -20 l -52 326 l 365 3 l 58 -329"
               fill="#85B3D9"
               className='hovercolor'/>
             <text x="195"
