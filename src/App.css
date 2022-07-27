@@ -6,7 +6,6 @@
 
 .App * {
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 ul {
@@ -261,7 +260,11 @@ body {
   background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
-
+@media all and (max-width: 1000px) {
+  .App * {
+    overflow-x: hidden;
+  }
+}
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {
