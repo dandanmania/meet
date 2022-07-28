@@ -270,6 +270,34 @@ body {
   background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
+@media all and (max-width: 1000px) {
+  .App * {
+    overflow-x: hidden;
+  }
+
+  .suggestions {
+    position: fixed;
+    top: 160px;
+  }
+
+  .CitySearch > .Alert {
+    width: 100%;
+    top: -2px;
+    left: 2rem;
+    font-size: x-small;
+    font-weight: bold;
+  }
+
+  .noe-container > .Alert {
+    font-size: x-small;
+    left: 6rem;
+    font-weight: bold;
+  }
+  
+  .event {
+    margin-bottom: 0px;
+  }
+}
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {
