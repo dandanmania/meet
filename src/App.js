@@ -67,11 +67,10 @@ class App extends Component {
       <div className="App">
         <div className="topbar">
           <svg className="MainLogo" height="100px" width="405px">
-            <a href="/meet">
             <path 
               d="m 20 -20 l -52 326 l 365 3 l 58 -329"
               fill="#85B3D9"
-              className='hovercolor'/>
+              />
             <text x="195"
                   y="55"
                   fill="#FFFFFF"
@@ -80,7 +79,6 @@ class App extends Component {
                   className='LogoText'>
                   Meet App
               </text>
-            </a>
           </svg>
         </div>
         <WarningAlert text={this.state.text}/>

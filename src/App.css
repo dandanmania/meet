@@ -248,9 +248,7 @@ input[type="number"] {
   background-color: #494949;
   display: flex;
 }
-.hovercolor:hover {
-  fill: #4B83B2
-}
+
 .noe-container {
   max-width: 300px;
 }
