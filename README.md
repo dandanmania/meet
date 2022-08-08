@@ -4,6 +4,8 @@ This project is from [CareerFoundry's Full Stack Web Development Program](https:
 
 Live Version: [Click Here](https://dandanmania.github.io/meet/).
 
+Warning: The site is under verification with Google. You can still access it through the warning that pops up when trying to access the app.
+
 # Uses
 - React
 - React Bootstrap
