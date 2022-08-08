@@ -2,6 +2,18 @@
 
 This project is from [CareerFoundry's Full Stack Web Development Program](https://careerfoundry.com/en/courses/become-a-web-developer/) Achievement 4. It is a serverless, progressive web application made with React using a test-driven development (TDD) technique. It uses the Google Calendar API to fetch upcoming events, and display them and their details to the user.
 
+Live Version: [Click Here](https://dandanmania.github.io/meet/).
+
+# Uses
+- React
+- React Bootstrap
+- Axios
+- nprogress
+- recharts
+- serverless
+- AWS Lambda
+- Google OAuth2
+
 # Feature User Stories
 
 ## Feature 2: Show/Hide An Event's Details
