@@ -56,8 +56,8 @@ class App extends Component {
     const isTokenValid = (await checkToken(accessToken)).error ? false : true;
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get('code');
-    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-    if ((code || isTokenValid) && this.mounted) {
+    this.setState({ showWelcomeScreen: (code || isTokenValid) });
+    if (!(code || isTokenValid) && this.mounted) {
       getEvents().then((events) => {
         if (this.mounted) {
           this.setState({ events, locations: extractLocations(events) });
@@ -111,7 +111,7 @@ class App extends Component {
               <CartesianGrid strokeDasharray="3 3" stroke='white' />
               <XAxis type="category" dataKey="city" name="city" stroke='white' />
               <YAxis type="number" dataKey="number" name="number of events" stroke='white' />
-              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+              <Tooltip labelFormatter={() => { return ''; }} cursor={{ strokeDasharray: '3 3' }} />
               <Scatter data={this.getData()} fill="#85B3D9" />
             </ScatterChart>
           </ResponsiveContainer>
