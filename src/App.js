@@ -18,7 +18,8 @@ class App extends Component {
     locations: [],
     eventNumber: 32,
     text: '',
-    showWelcomeScreen: undefined
+    showWelcomeScreen: undefined,
+    searchLocation: ''
   }
 
   updateEvents = (location, eventNumber) => {
@@ -33,15 +34,16 @@ class App extends Component {
         ? events
         : events.filter((event) => event.location === location);
       this.setState({
-        events: locationEvents
+        events: locationEvents,
+        searchLocation: location
       });
     });
   }
 
   getData = () => {
-    const {locations, events} = this.state;
+    const {locations, events, eventNumber} = this.state;
     const data = locations.map((location) => {
-      const number = events.filter((event) => event.location === location).length
+      const number = events.filter((event) => event.location === location).slice(0, eventNumber).length
       const city = location.split(', ').shift()
       return {city,number};
     })
@@ -98,7 +100,7 @@ class App extends Component {
         <WarningAlert text={this.state.text}/>
 
         <CitySearch locations={locations} updateEvents={this.updateEvents}/>
-        <NumberOfEvents updateEvents={this.updateEvents}/>
+        <NumberOfEvents updateEvents={this.updateEvents} searchLocation={this.state.searchLocation}/>
         
         <Card className='chart-card'>
         <div className='data-vis-wrapper'>
