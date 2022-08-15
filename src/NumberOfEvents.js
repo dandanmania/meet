@@ -14,7 +14,11 @@ class NumberOfEvents extends Component {
             this.setState({infoText: 'Enter a number between 1 and 32.'})
         } else {
             this.setState({eventNumber: value, infoText: ''});
-            this.props.updateEvents(this.props.searchLocation, value);
+            if(this.props.searchLocation === '') {
+                this.props.updateEvents('all', value);
+            } else {
+                this.props.updateEvents(this.props.searchLocation, value);
+            }
         }
     }
 
